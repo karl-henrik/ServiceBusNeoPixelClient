@@ -5,16 +5,16 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace WhiteboardQueueSender
+namespace Whiteboard.API
 {
     class ServiceBusSender
     {
         private static IQueueClient queueClient;
         private static string ServiceBusConnectionString = Configuration.GetConnectionstring();
         private static string QueueName = Configuration.GetQueueName();
-        
-        
-        public void Send()
+
+
+        public void Send(string messageText)
         {
             queueClient = new QueueClient(ServiceBusConnectionString, QueueName);
 
@@ -23,37 +23,18 @@ namespace WhiteboardQueueSender
                 AutoComplete = true
             };
 
-            int i = 0;
-            var change = 1;
+            var message = new Message(Encoding.UTF8.GetBytes(messageText));
 
-            while(!Console.KeyAvailable)
-            {
-                var message = new Message(Encoding.UTF8.GetBytes($"{i}:255&{i -change}:0"));
-                queueClient.SendAsync(message);
-
-                if (i == 279)
-                    change = -1;
-                if (i == 0)
-                    change = 1;
-
-                i += change;
-
-                Thread.Sleep(500);
-            }
+            queueClient.SendAsync(message);
             
-            
-               
-            Console.WriteLine("Queue Listening process started! Press any key to exit the program.");
-            Console.ReadKey();
-
         }
-        
+
 
 
         private async static Task ExceptionHandler(ExceptionReceivedEventArgs ex)
         {
             await Task.Run(() => Console.WriteLine($"Exception: {ex.Exception.Message }"));
         }
-        
+
     }
 }

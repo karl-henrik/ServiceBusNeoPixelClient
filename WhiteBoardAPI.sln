@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhiteBoardAPI", "WhiteBoardAPI\WhiteBoardAPI.csproj", "{E3EF4063-D1F0-4AA8-AD05-7232C34D1646}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhiteBoardAPI", "WhiteBoardAPI\WhiteBoardAPI.csproj", "{E3EF4063-D1F0-4AA8-AD05-7232C34D1646}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhiteboardQueueSender", "WhiteboardQueueSender\WhiteboardQueueSender.csproj", "{95519448-05A0-4A81-AF08-64F78284BA5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhiteboardQueueSender", "WhiteboardQueueSender\WhiteboardQueueSender.csproj", "{95519448-05A0-4A81-AF08-64F78284BA5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Whiteboard.Web", "Whiteboard.Web\Whiteboard.Web.csproj", "{6F2E3936-6E7A-4085-A493-3F1A8FFD55E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Whiteboard.API", "Whiteboard.API\Whiteboard.API.csproj", "{5E32CA9C-25A9-47FC-928C-671AEBF99FBE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{95519448-05A0-4A81-AF08-64F78284BA5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95519448-05A0-4A81-AF08-64F78284BA5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95519448-05A0-4A81-AF08-64F78284BA5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F2E3936-6E7A-4085-A493-3F1A8FFD55E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F2E3936-6E7A-4085-A493-3F1A8FFD55E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F2E3936-6E7A-4085-A493-3F1A8FFD55E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F2E3936-6E7A-4085-A493-3F1A8FFD55E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E32CA9C-25A9-47FC-928C-671AEBF99FBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E32CA9C-25A9-47FC-928C-671AEBF99FBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E32CA9C-25A9-47FC-928C-671AEBF99FBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E32CA9C-25A9-47FC-928C-671AEBF99FBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

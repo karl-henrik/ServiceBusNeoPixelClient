@@ -23,32 +23,32 @@ namespace WhiteBoardAPI
             Console.WriteLine(Environment.Version.ToString());
             string[] ports = GetPortNames();
 
-            if (ports.Length == 0)
-            {
-                //We are on Windows
-                myPort = new SerialPortStream("COM4", 115200, 8, Parity.None, StopBits.One);
-                myPort.Open();
-                if (!myPort.IsOpen)
-                {
-                    Console.WriteLine("Error opening serial port");
-                    return;
-                }
-                Console.WriteLine("Port open");
+            //if (ports.Length == 0)
+            //{
+            //    //We are on Windows
+            //    myPort = new SerialPortStream("COM4", 115200, 8, Parity.None, StopBits.One);
+            //    myPort.Open();
+            //    if (!myPort.IsOpen)
+            //    {
+            //        Console.WriteLine("Error opening serial port");
+            //        return;
+            //    }
+            //    Console.WriteLine("Port open");
 
-                if (myPort == null)
-                {
-                    Console.WriteLine("No serial port /dev/ttyS0");
-                    return;
-                }
-            }
-            else
-            {
-                //We are on Linux
+            //    if (myPort == null)
+            //    {
+            //        Console.WriteLine("No serial port /dev/ttyS0");
+            //        return;
+            //    }
+            //}
+            //else
+            //{
+            //    //We are on Linux
 
-                foreach (var port in ports)
-                    if (port == "/dev/ttyS0")
-                    {
-                        myPort = new SerialPortStream("/dev/ttyS0", 115200, 8, Parity.None, StopBits.One);
+            //    foreach (var port in ports)
+            //        if (port == "/dev/ttyAMA0")
+            //        {
+                        myPort = new SerialPortStream("/dev/ttyACM0", 115200, 8, Parity.None, StopBits.One);
                         myPort.Open();
                         if (!myPort.IsOpen)
                         {
@@ -56,17 +56,22 @@ namespace WhiteBoardAPI
                             return;
                         }
                         Console.WriteLine("Port open");
-                    }
+                    //}
                 if (myPort == null)
                 {
-                    Console.WriteLine("No serial port /dev/ttyS0");
+                    Console.WriteLine("No serial port /dev/ttyACM0");
                     return;
                 }
-            }
+            
             myPort.Handshake = Handshake.None;
             myPort.ReadTimeout = 1000;
             myPort.NewLine = "\n";
 
+        }
+
+        internal static void Close()
+        {
+            myPort.Close();
         }
 
         internal static void Send()

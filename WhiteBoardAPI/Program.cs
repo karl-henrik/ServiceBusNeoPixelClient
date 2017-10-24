@@ -10,12 +10,20 @@ namespace WhiteBoardAPI
     {
         static void Main(string[] args)
         {
-            var listener = new ServiceBusListener();
+            try
+            {
+                var listener = new ServiceBusListener();
 
-            SerialPort.init();
-            Thread.Sleep(1000);
+                SerialPort.init();
+                Thread.Sleep(1000);
 
-            listener.Listen();
+                listener.Listen();
+            }
+            finally
+            {
+                SerialPort.Close();
+            }
+            
         }
         
     }
